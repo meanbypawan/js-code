@@ -1,0 +1,27 @@
+<script>
+  var customerList =[
+                     {
+                      "id": 1,
+                      "cname": "Cheeku",
+                      "mobile": 9009111222,
+                      "age": 21  
+                     },
+                     {
+                      "id": 2,
+                      "cname": "Reenku",
+                      "mobile": 9009111222,
+                      "age": 21  
+                     },
+                     {
+                      "id": 3,
+                      "cname": "Peeku",
+                      "mobile": 9009111222,
+                      "age": 21  
+                     }
+                    ];
+         
+      for(index in customerList){
+        var customer = customerList[index];
+          document.write(customer.id+" "+customer.cname+" "+customer.mobile+" "+customer.age+"<br>");               
+      }           
+</script>
