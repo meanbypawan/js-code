@@ -1,0 +1,21 @@
+<script>
+  function f1(){
+    document.write("f1-called<br>");
+    var x = f2();
+    document.write("Value written By f2 : "+x+"<br>");
+    return 100;
+  }
+  function f2(){
+    document.write("f2-called<br>");
+    return 200;
+  }
+  function f3(){
+    var x = f1();
+    document.write("Value written By f1 : "+x+"<br>");
+    document.write("f3-called<br>");
+    return 300;
+  }
+  var x = f3();
+  document.write("Value written By f3 : "+x+"<br>");
+  document.write("At the end..<br>");
+</script>

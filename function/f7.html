@@ -1,0 +1,15 @@
+<script>
+  var x = 20;
+  var y = function(){
+    document.write("y - called....");
+  };
+  
+  function f1(a,b){
+    document.write("a : "+a+"<br>");
+    b();
+  } 
+  
+  f1(x,y);
+ 
+
+</script>
