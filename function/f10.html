@@ -1,0 +1,18 @@
+<script>
+  function addwithevenodd(a,b,callback){
+    var z = a + b;
+    if(z<15)
+      callback("Error: values is less then 15");
+    else
+     callback("",z);
+  }
+  
+  var n1 = parseFloat(prompt('Enter 1st value'));
+  var n2 = parseFloat(prompt("Enter 2nd value"));
+  addwithevenodd(n1,n2,function(err,result){
+    if(err)
+      document.write(err);
+    else
+     document.write("Result : "+result+"<br>");  
+  });
+</script>

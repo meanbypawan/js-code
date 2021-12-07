@@ -1,0 +1,11 @@
+<script>
+  function f1(a,callback){
+    document.write("a : "+a+"<br>");
+    //document.write("callback = "+callback+"<br>");
+    callback();
+  }
+  
+  f1(20,function(){
+    document.write("Call back exectued....");
+  });
+</script>

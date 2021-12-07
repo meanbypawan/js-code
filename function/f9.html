@@ -1,0 +1,13 @@
+<script>
+  function addwithevenodd(a,b,callback){
+    var z = a + b;
+    document.write("Addition : "+z+"<br>");
+    callback(z);
+  }
+  addwithevenodd(21,10,function(result){
+     result%2==0 ? document.write("Even") : 
+                     document.write("Odd");  
+  });
+  // callback
+  // error callback
+</script>
