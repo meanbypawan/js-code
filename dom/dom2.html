@@ -1,0 +1,24 @@
+<html>
+  <head>
+  </head>
+  <body>
+   <center> 
+     <img id="image" src="micky.jpeg" width="200" height="200"/>
+     <br/><br/><br/>
+     <button onclick="decreaseSize()">-</button>
+     <button onclick="increaseSize()">+</button>
+   </center>
+  </body>
+  <script>
+    function decreaseSize(){
+      var imgObj = document.getElementById("image");
+      imgObj.width = imgObj.width-10;
+      imgObj.height = imgObj.height-10;
+    }
+    function increaseSize(){
+      var imgObj = document.getElementById("image");
+      imgObj.width = imgObj.width+10;
+      imgObj.height = imgObj.height+10;
+    }
+  </script>
+</html>

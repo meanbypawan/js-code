@@ -1,0 +1,25 @@
+<html>
+  <head>
+  </head>
+  <body>
+   <center> 
+     <img id="image" src="micky.jpeg" width="200" height="200"/>
+     <br/><br/><br/>
+     <button onclick="changeImage(1)">-</button>
+     <button onclick="changeImage(2)">+</button>
+   </center>
+  </body>
+  <script>
+   function changeImage(n){
+     var img = document.getElementById("image");
+     if(n==1){
+       img.width-=10;
+       img.height-=10;
+     }
+     else if(n==2){
+       img.width+=10;
+       img.height+=10;
+     }
+   }
+  </script>
+</html>

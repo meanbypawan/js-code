@@ -1,0 +1,32 @@
+<html>
+  <head>
+  </head>
+  <body>
+   <center> 
+     <img id="image" src="micky.jpeg" width="200" height="200"/>
+     <br/><br/><br/>
+     <button onclick="changeImage(1)"><</button>
+     <button onclick="changeImage(2)">></button>
+   </center>
+  </body>
+  <script>
+   var imageArray = ["micky.jpeg","i1.jpeg","i2.jpeg","i3.png","i4.jpeg","i5.jpeg"];;
+   var imageIndex = 0;
+   function changeImage(n){
+     //alert("called...");
+      var imgObj = document.getElementById("image");
+      if(n==1){
+        imageIndex--;
+        if(imageIndex<0)
+          imageIndex = 5;
+        imgObj.src = imageArray[imageIndex];
+      }
+      else if(n==2){
+       imageIndex++;     
+       if(imageIndex==6)
+         imageIndex = 0;
+       imgObj.src = imageArray[imageIndex];
+      }
+   }
+  </script>
+</html>
