@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <style>
+      div{
+        background-color: black;
+        color: white;
+        width: 100%;
+        height: 500px;
+        margin-top: 20px;
+      }
+      input{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="data" onkeyup="showData()"/>
+    <div id="content"></div>
+  </body>
+  <script>
+    function showData(){
+      var inputObject = document.getElementById('data');
+      var divObject = document.getElementById("content");
+      var data = inputObject.value;
+      divObject.innerHTML = data;
+    }
+  </script>
+</html>

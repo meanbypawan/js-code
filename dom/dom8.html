@@ -1,0 +1,42 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <input onkeyup="addition()" type="text" id="first"/><br>
+    <input onkeyup="addition()" type="text" id="second"/><br>
+    <input onkeyup="addition()" type="text" id="third"/><br>
+    
+    <p id = "result">Result : </p>
+    <button onclick="resetFields()">Reset</button>
+  </body>
+  <script>
+    function resetFields(){
+     document.getElementById('first').value = "";
+     document.getElementById('second').value = "";
+     document.getElementById('third').value ="";
+      
+    }
+    function addition(){
+      var val1 = document.getElementById('first').value;
+      var val2 = document.getElementById('second').value;
+      var val3 = document.getElementById('third').value;
+      
+      var p = document.getElementById("result");
+      if(val1 == "")
+       val1 = 0;
+      if(val2 == "")
+       val2 = 0;
+      if(val3 == "")
+       val3 = 0;
+           
+      val1 = parseInt(val1);
+      val2 = parseInt(val2);
+      val3 = parseInt(val3);
+    
+      var result = val1 + val2 + val3;
+      p.innerHTML = "Result : "+result;
+    
+    }
+  </script>
+</html>
