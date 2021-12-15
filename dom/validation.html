@@ -1,0 +1,165 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <form style="margin:40px;">
+      <div class="form-group">
+         <label>Username</label>
+         <input onkeyup="validateUsername()" type="text" id="username" class="form-control"/>
+         <small id="usernameError"></small>
+      </div>
+      <div class="form-group">
+         <label>Password</label>
+         <input onkeyup="validatePassword()" type="password" id="password" class="form-control"/>
+         <small id="passwordError"></small>
+      </div>
+      <div class="form-group">
+         <label>Mobile</label>
+         <input onkeyup="validateMobileNumber()" type="text" id="mobile" class="form-control"/>
+         <small id="mobileError"></small>
+      </div>
+     
+      <div class="form-group">
+        <label>Experience</label>
+        <select id="experience" onchange="validateExperience()" class="form-control">
+          <option value="0">--------</option>
+          <option value="1">Fresher</option>
+          <option value="2">1-5</option>
+          <option value="3">5-10</option>
+          <option value="4">Above 10 year</option>
+        </select>
+        <small id="experienceError"></small>
+      </div>
+      <div class="form-group">
+        <label>Gender</label><br>
+        Male <input onchange="validateGender()" type="radio" id="male" name="gender"/>&nbsp;&nbsp;&nbsp;
+        Female <input onchange="validateGender()" type="radio" id="female" name="gender"/>
+        <br><small id="genderError"></small>
+      </div>
+       <div class="form-group">
+        <button onclick="return validateData()" type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </form>
+    <script>
+      function validateGender(){
+         var status = true;
+         var isMale = document.getElementById("male").checked;
+         var isFemale = document.getElementById("female").checked;
+         var genderError = document.getElementById("genderError");
+         if(isMale == false && isFemale == false){
+           status = false;
+           genderError.innerHTML = "please select gender";
+           genderError.style.color = "red";
+         }
+         else
+           genderError.innerHTML = "";
+         return status;  
+      }
+      function validateExperience(){
+        var status = true;
+        var experience = document.getElementById("experience").value;
+        var experienceError = document.getElementById("experienceError");
+        if(experience == "0"){
+         status = false;
+         experienceError.innerHTML = "please select experience";
+         experienceError.style.color = "red";
+        }
+        else
+         experienceError.innerHTML = "";
+        
+        return status; 
+      }
+      function validateUsername(){
+        var status = true;
+        var username = document.getElementById("username").value;
+        var usernameError = document.getElementById("usernameError");
+        if(username == ""){
+           status = false;
+           usernameError.innerHTML = "please enter username";
+           usernameError.style.color = "red";
+        }
+        else
+         usernameError.innerHTML = "";
+         return status;
+      }
+      function validatePassword(){
+        var status = true;
+        var password = document.getElementById("password").value;
+        var passwordError = document.getElementById("passwordError");
+        if(password == ""){
+          status = false;
+          passwordError.innerHTML = "please enter password";
+          passwordError.style.color = "red";
+        }
+        else if(password.length<8 || password.length>10){
+          status = false;
+          passwordError.innerHTML = "password must be 8-10 letter long";
+          passwordError.style.color = "red";
+        }
+        else if(!(password.includes("$") || password.includes("@") || password.includes("#")|| password.includes("*"))){
+           status = false;
+           passwordError.innerHTML = "Password must contains at least on special symbol ($,#,@ or *)";
+           passwordError.style.color = "red";  
+        }
+        else if(checkingLetter(password)==false){
+          passwordError.innerHTML = "Password must contain at least one uppercase letter";
+          passwordError.style.color = "red";
+          status = false;
+        }
+        else
+          passwordError.innerHTML = "";
+          return status;
+      }
+      function validateMobileNumber(){
+         var status = true;
+         var mobile = document.getElementById("mobile").value;
+         var mobileError = document.getElementById("mobileError");
+          if(mobile == ""){
+          status = false;
+          mobileError.innerHTML = "please enter mobile number";
+          mobileError.style.color = "red";
+        }
+        else if(isNaN(mobile)){
+          status = false;
+          mobileError.innerHTML = "only digit allowed"; 
+          mobileError.style.color = "red";
+        }
+        else if(mobile.length!=10){
+          status = false;
+          mobileError.innerHTML = "Mobile must have 10 digit";
+          mobileError.style.color = "red";
+        }
+        else
+          mobileError.innerHTML = "";
+        
+        return status;  
+      }
+      function checkingLetter(data){
+       //alert("function called....");
+        var flag = false;
+           for(var i=0; i<data.length; i++){
+              var letter = data.charAt(i);
+              if(letter>="A" && letter <="Z"){
+                  flag = true;
+                  break;     
+              }
+           }
+         return flag;  
+      }
+      function validateData(){
+        var x = validateUsername();
+        var y = validatePassword();
+        var z = validateMobileNumber();
+        var experience = validateExperience();
+        var gender = validateGender();
+        if(x && y && z && experience && gender)
+          return true;
+        return false;   
+      }
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<script>
+  var xhttp = new XMLHttpRequest();
+  console.log(xhttp.readyState);
+  var apiUrl = "https://jsonplaceholder.typicode.com/posts";
+  xhttp.open('GET',apiUrl,true);
+  console.log(xhttp.readyState);
+  xhttp.send();
+  
+  xhttp.onreadystatechange = function(){
+    if(xhttp.readyState == 4 && xhttp.status == 200){
+       var data = xhttp.responseText;// data = "[]"
+       data = JSON.parse(data);
+       document.write("<table border='1'>");
+       document.write("<tr>");
+       document.write("<td>Id</td>");
+       document.write("<td>UserId</td>");
+       document.write("<td>title</td>");
+       document.write("<td>body</td>");
+       document.write("</tr>");
+       for(var i=0; i<data.length; i++){
+         document.write("<tr>");
+         document.write("<td>"+data[i].id+"</td>");
+         document.write("<td>"+data[i].userId+"</td>");
+         document.write("<td>"+data[i].title+"</td>");
+         document.write("<td>"+data[i].body+"</td>");
+         document.write("</tr>");
+       }
+       document.write("</table>");
+    }
+  }
+</script>
